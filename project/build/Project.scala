@@ -10,4 +10,12 @@ with sbt_akka_bivy.AkkaKernelDeployment{
   val akka_http   = akkaModule("http")
   val akka_remote = akkaModule("remote")
 
+  override def akkaKernelBootClass = "akka.kernel.Main"
+  def htmlDir = "src" / "main" / "html"
+  
+  lazy val deployHtml = task {
+    FileUtilities.copyDirectory(htmlDir, bundleDir / "html", log)
+    None
+  } dependsOn(akkaBundle) describedAs("deploy html")
+
 }

@@ -6,6 +6,8 @@ import akka.util._
 
 class Boot 
 {
+  import Actor._
+
   val factory = 
     SupervisorFactory(
       SupervisorConfig(
