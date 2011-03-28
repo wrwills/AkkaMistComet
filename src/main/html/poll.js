@@ -1,4 +1,3 @@
-
 function addmsg(type, msg){
     $("#messages").append(
         "<div class='msg "+ type +"'>"+ msg +"</div>"
